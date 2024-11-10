@@ -1,6 +1,6 @@
 # garbage-classification-assignment
 
-This project implements a garbage classification model using PyTorch to categorize waste into "green," "blue," "black," and "other" categories. Classification is based on a combination of images and text descriptions, helping to identify the correct category for each waste item. This system was developed as part of **ENEL 645** at the University of Calgary to assist with waste management in the city.
+This project implements a garbage classification model using PyTorch to categorize waste into "black," "blue," "green," and "other" categories. Classification is based on a combination of images and text descriptions, helping to identify the correct category for each waste item. This system was developed as part of **ENEL 645** at the University of Calgary to assist with waste management in the city.
 
 Name: Felipe Castano - 30259693
 
@@ -25,7 +25,7 @@ Install the required dependencies in the requirements.txt file
 
 ### Training and Testing the Combined Model
 
-This code integrates both image and text data to classify garbage items into the categories "green," "blue," "black," and "other." Using a combined model, it processes images with a ResNet18 architecture and text descriptions with a BERT model, training both together to optimize classification accuracy.
+This code integrates both image and text data to classify garbage items into the categories "black," "blue," "green," and "other". Using a combined model, it processes images with a ResNet18 architecture and text descriptions with a BERT model, training both together to optimize classification accuracy.
 
 The code structure includes:
 - **Data Preparation**: The `GarbageDataset` class loads images and corresponding text descriptions, organizes them into tensors for PyTorch, and applies necessary transformations.
