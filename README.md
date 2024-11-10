@@ -2,6 +2,8 @@
 
 This project implements a garbage classification model using PyTorch to categorize waste into "green," "blue," "black," and "other" categories. Classification is based on a combination of images and text descriptions, helping to identify the correct category for each waste item. This system was developed as part of **ENEL 645** at the University of Calgary to assist with waste management in the city.
 
+Name: Felipe Castano 
+
 ## Project Description
 
 This project aims to solve the problem of garbage classification by combining image processing and natural language understanding to interpret user-provided waste descriptions. We use a Convolutional Neural Network (ResNet18) for image analysis and BERT for text analysis. Outputs from both models are combined and passed through fully connected layers for final classification. This solution helps residents correctly categorize their waste, contributing to environmental sustainability.
