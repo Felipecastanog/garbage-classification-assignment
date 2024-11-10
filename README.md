@@ -1,6 +1,6 @@
 # garbage-classification-assignment
 
-This project implements a garbage classification model using PyTorch to categorize waste into "black," "blue," "green," and "other" categories. Classification is based on a combination of images and text descriptions, helping to identify the correct category for each waste item. This system was developed as part of **ENEL 645** at the University of Calgary to assist with waste management in the city.
+This project implements a garbage classification model using PyTorch to categorize waste into "black," "blue," "green," and "other" categories. Classification is based on a combination of images and text descriptions, helping to identify the correct category for each waste item. This system was developed as part of **ENEL 645** at the University of Calgary as an exercise to assist with waste management in the city.
 
 Name: Felipe Castano - 30259693
 
