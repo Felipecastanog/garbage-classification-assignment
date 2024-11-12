@@ -6,7 +6,7 @@ Name: Felipe Castano - 30259693
 
 ## Project Description
 
-This project aims to solve the problem of garbage classification by combining image processing and natural language understanding to interpret user-provided waste descriptions. We use a Convolutional Neural Network (ResNet18) for image analysis and BERT for text analysis. Outputs from both models are combined and passed through fully connected layers for final classification. This solution helps residents correctly categorize their waste, contributing to environmental sustainability.
+This project aims to solve the problem of garbage classification by combining image processing and natural language understanding to interpret user-provided waste descriptions. We use a Convolutional Neural Network (ResNet50) for image analysis and BERT for text analysis. Outputs from both models are combined and passed through fully connected layers for final classification. This solution helps residents correctly categorize their waste, contributing to environmental sustainability.
 
 ## Installing Dependencies
 
@@ -29,7 +29,7 @@ This code integrates both image and text data to classify garbage items into the
 
 The code structure includes:
 - **Data Preparation**: The `GarbageDataset` class loads images and corresponding text descriptions, organizes them into tensors for PyTorch, and applies necessary transformations.
-- **Model Architecture**: The `EnhancedCombinedModel` combines features extracted from ResNet18 (for images) and BERT (for text) through additional fully connected layers, batch normalization, and dropout, ensuring stable and accurate classification.
+- **Model Architecture**: The `EnhancedCombinedModel` combines features extracted from ResNet50 (for images) and BERT (for text) through additional fully connected layers, batch normalization, and dropout, ensuring stable and accurate classification.
 - **Training and Validation**: The `train_model` function trains the combined model on the dataset and evaluates it using validation data at each epoch.
 - **Evaluation**: The `evaluate_model` function evaluates model performance on the test set, providing accuracy and a confusion matrix.
 
@@ -39,7 +39,7 @@ As this project was developed in an academic setting, please consult with our in
 
 ## Model Design Decisions
 
-- **Convolutional Neural Network (ResNet18)**: Used to process image features and extract relevant visual information.
+- **Convolutional Neural Network (ResNet50)**: Used to process image features and extract relevant visual information.
 - **BERT Model**: Employed to capture the semantics of text descriptions, identifying keywords like material or type of waste.
 - **Combined Architecture**: ResNet and BERT outputs are combined in fully connected layers with batch normalization and dropout to improve stability and prevent overfitting.
 - **Optimization**: We applied hyperparameter tuning techniques like adjusted learning rates and batch sizes to achieve an accuracy above 80%.
