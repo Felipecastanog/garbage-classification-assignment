@@ -44,4 +44,4 @@ As this project was developed in an academic setting, please consult with our in
 - **Convolutional Neural Network (ResNet50)**: Used to process image features and extract relevant visual information.
 - **BERT Model**: Employed to capture the semantics of text descriptions, identifying keywords like material or type of waste.
 - **Combined Architecture**: ResNet and BERT outputs are combined in fully connected layers with batch normalization and dropout to improve stability and prevent overfitting.
-- **Optimization**: We applied hyperparameter tuning techniques like adjusted learning rates and batch sizes to achieve an accuracy above 80%.
+- **Optimization**: We applied hyperparameter tuning techniques like adjusted learning rates and batch sizes to achieve an accuracy above 70%.
