@@ -12,11 +12,9 @@ This project aims to solve the problem of garbage classification by combining im
 
 We first tried to solve the problem by using k-fold stratified, but after several models and attempts, we gave up on this model. At this point we decided to integrate the Resnet50 and Bert in a fully connected layer and concatenate the characteristics of both to obtain the expected classification.
 
-## Installing Dependencies
-
-Install the required dependencies in the requirements.txt file
-
 ### Key Requirements
+
+To run it, you'll need Python 3.8+ and essential libraries, including PyTorch, Transformers, and Torchvision for model development; Pillow and Matplotlib for image handling and visualization; and Scikit-Learn for evaluation metrics. CUDA-enabled GPUs are recommended for faster training, though they are optional. The data must be organized in labeled folders for efficient loading and processing by the model's custom dataset class.
 
 - `torch`: Deep learning framework for building and training the model.
 - `torchvision`: Contains pretrained models and image transformation tools.
@@ -24,26 +22,32 @@ Install the required dependencies in the requirements.txt file
 - `sklearn`: Metric and evaluation tools.
 - `Pillow`: Image manipulation.
 - `matplotlib`: Data visualization and graphing.
+- `Scikit-Learn`: Evaluation metrics
 
 ## Usage
 
 ### Training and Testing the Combined Model
 
-This code integrates both image and text data to classify garbage items into the categories "black," "blue," "green," and "other". Using a combined model, it processes images with a ResNet18 architecture and text descriptions with a BERT model, training both together to optimize classification accuracy.
+This code integrates both image and text data to classify garbage items into the categories "Black," "Blue," "Green," and "TTR". Using a combined model, it processes images with a ResNet50 architecture and text descriptions with a BERT model, training both together to optimize classification accuracy.
 
 The code structure includes:
-- **Data Preparation**: The `GarbageDataset` class loads images and corresponding text descriptions, organizes them into tensors for PyTorch, and applies necessary transformations.
-- **Model Architecture**: The `EnhancedCombinedModel` combines features extracted from ResNet50 (for images) and BERT (for text) through additional fully connected layers, batch normalization, and dropout, ensuring stable and accurate classification.
-- **Training and Validation**: The `train_model` function trains the combined model on the dataset and evaluates it using validation data at each epoch.
-- **Evaluation**: The `evaluate_model` function evaluates model performance on the test set, providing accuracy and a confusion matrix.
+The code structure is organized as follows:
+
+- **Imports and Configuration**: Essential libraries are imported, device (CPU/GPU) is set, and data paths are specified.
+- **Dataset Definition**: A custom GarbageDataset class is created to load images and text, applying image transformations and text tokenization for multi-modal input.
+- **Model Definition**: The MultiModalModel class is defined, combining a ResNet50 for image features and a BERT model for text features, followed by fully connected layers for final classification.
+- **Data Transformations and Tokenizer**: Image transformations for data augmentation and the BERT tokenizer are initialized.
+- **Data Loading**: Training, validation, and test datasets are loaded using DataLoader, with batch sizes and shuffle settings.
+- **Training Components**: Loss function, optimizer, and learning rate scheduler are set up. Class weights are computed to address class imbalance.
+- **Training Function**: A train_model function trains the model, tracks validation accuracy, and implements early stopping for optimization.
+- **Evaluation Function**: evaluate_model calculates accuracy, and confusion matrix, and displays incorrect classifications, saving visual results to files.
+- **ROC Curve Plotting**: plot_roc_curve generates ROC curves for multi-class evaluation, saved as an image.
 
 ### Data Access
 
-As this project was developed in an academic setting, please consult with our instructor to access the specific data.
+The data is accessed through specified directory paths for training, validation, and testing (TRAIN_PATH, VAL_PATH, and TEST_PATH). Within these directories, images and text files are organized in labeled folders corresponding to each classification category (e.g., "Black," "Blue," "Green," "TTR"). The custom GarbageDataset class reads each image and associated text description, transforming images and tokenizing text for model input. For each label folder, image files (.jpg or .png) and their corresponding text files (.txt) are processed, enabling the model to access multi-modal inputs.
 
 ## Model Design Decisions
 
-- **Convolutional Neural Network (ResNet50)**: Used to process image features and extract relevant visual information.
-- **BERT Model**: Employed to capture the semantics of text descriptions, identifying keywords like material or type of waste.
-- **Combined Architecture**: ResNet and BERT outputs are combined in fully connected layers with batch normalization and dropout to improve stability and prevent overfitting.
-- **Optimization**: We applied hyperparameter tuning techniques like adjusted learning rates and batch sizes to achieve an accuracy above 70%.
+The model successfully classified garbage images and text descriptions, achieving a final evaluation accuracy of approximately 72%. This result reflects the effectiveness of its multi-modal approach, combining ResNet50 for image feature extraction and BERT for text processing, enabling the model to learn patterns from both data types. Through early stopping, the model retained the best-performing version based on validation accuracy, mitigating potential overfitting. Overall, the model provides a reliable, scalable framework for image-text classification with room for optimization.
+
